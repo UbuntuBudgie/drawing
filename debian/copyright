@@ -4,8 +4,12 @@ Upstream-Contact: Romain F. T. <rrroschan@gmail.com>
 Source: https://github.com/maoschanz/drawing
 
 Files: *
-Copyright: 2018-2021 Romain F. T.
+Copyright: 2018-2022 Romain F. T.
 License: GPL-3+
+
+Files: help/C/*
+Copyright: 2018-2022 Romain F. T.
+License: CC-BY-SA-3.0
 
 Files:
  data/icons/*
@@ -13,26 +17,19 @@ Files:
 Copyright: GNOME Design Team
 License: CC-BY-SA-4.0
 
-Files: src/gi_composites.py
-Copyright: 2015 Dustin Spicuzza <dustin@virtualroadside.com>
-License: LGPL-2.1+
-
 Files:
  data/icons/hicolor/scalable/apps/com.github.maoschanz.drawing-symbolic.svg
  data/icons/meson.build
  data/*.in
  data/*.xml
-Copyright: 2018-2021 Romain F. T.
+Copyright: 2018-2022 Romain F. T.
 License: CC0
  On Debian systems, the full text of the Creative Commons Zero 1.0 Universal
  license can be found in the file '/usr/share/common-licenses/CC0-1.0'.
 
-Files: help/C/*
-Copyright: 2018-2021 Romain F. T.
-License: CC-BY-SA-3.0
-
 Files: debian/*
 Copyright: 2019—2021 Andrej Shadura <andrewsh@debian.org>
+ Copyright: 2022 David Mohammed <fossfreedom@ubuntu.com>
 License: GPL-3+
 
 License: LGPL-2.1+
