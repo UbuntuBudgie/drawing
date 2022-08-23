@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+PACKAGE = $(firstword $(shell grep Package debian/control | cut -d: -f2))
+
+include /usr/share/dpkg/pkg-info.mk
+
+%:
+	dh $@ --buildsystem=meson
+
+execute_after_dh_auto_build:
+	@upstream_ver=$(shell meson introspect --projectinfo obj-*/ | jq -r .version); \
+	 deb_ver=$(shell echo $(DEB_VERSION_UPSTREAM) | sed -e 's/+.*//'); \
+	[ $$upstream_ver = $$deb_ver ] || \
+	( echo ; echo ERROR: Upstream version needs to be bumped: metadata says $$upstream_ver, packaging says $(DEB_VERSION_UPSTREAM); echo ; exit 1 )
+
+execute_after_dh_auto_install:
+	mv debian/$(PACKAGE)/usr/share/$(PACKAGE)/*/ debian/$(PACKAGE)/usr/lib/python3/dist-packages/
+
+execute_before_dh_installchangelogs:
+	appstreamcli metainfo-to-news --format=text $(firstword $(wildcard debian/*/usr/share/metainfo/*.xml)) debian/NEWS.upstream

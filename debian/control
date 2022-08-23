@@ -1,0 +1,37 @@
+Source: drawing
+Section: graphics
+Priority: optional
+Maintainer: Andrej Shadura <andrewsh@debian.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-sequence-single-binary,
+ dh-sequence-python3,
+ appstream,
+# appstream-util (>= 0.7.14),
+ desktop-file-utils,
+ gir1.2-gtk-3.0 (>= 3.24.0),
+ libglib2.0-dev-bin (>= 2.58.3),
+ itstool,
+ meson (>= 0.50),
+ pkgconf,
+ python3-all,
+ python3-gi-cairo (>= 3.30.0),
+ jq
+Standards-Version: 4.6.0
+Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/debian/drawing.git
+Vcs-Browser: https://salsa.debian.org/debian/drawing
+Homepage: https://maoschanz.github.io/drawing/
+
+Package: drawing
+Architecture: any
+Depends:
+ gir1.2-gtk-3.0 (>= 3.24.0),
+ python3-gi-cairo (>= 3.30.0),
+ ${misc:Depends},
+ ${python3:Depends},
+ ${shlibs:Depends},
+Description: simple drawing application for the GNOME desktop
+ Drawing is a simple image editor similar to MS Paint and designed
+ for the GNOME desktop environment. It includes a set of image
+ manipulation tools for every day basic image editing needs.

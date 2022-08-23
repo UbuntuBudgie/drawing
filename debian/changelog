@@ -1,0 +1,49 @@
+drawing (0.8.5-2) unstable; urgency=medium
+
+  * Add missing build dependency on itstool (Closes: #1005612).
+
+ -- Andrej Shadura <andrewsh@debian.org>  Mon, 14 Feb 2022 19:42:52 +0100
+
+drawing (0.8.5-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #982370).
+  * Bump debhelper from old 12 to 13.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit.
+  * Update standards version to 4.6.0, no changes needed.
+  * Set Rules-Requires-Root: no.
+  * Explicitly use dh-sequence-single-binary.
+  * Bump copyright years.
+
+ -- Andrej Shadura <andrewsh@debian.org>  Tue, 14 Dec 2021 18:18:16 +0100
+
+drawing (0.6.4-1) unstable; urgency=medium
+
+  * Upload to unstable.
+  * New upstream release (Closes: #975605).
+
+ -- Andrej Shadura <andrewsh@debian.org>  Tue, 01 Dec 2020 14:38:30 +0100
+
+drawing (0.5.3+git20200524+20ccb40-1) experimental; urgency=medium
+
+  * New upstream snapshot.
+
+ -- Andrej Shadura <andrewsh@debian.org>  Fri, 29 May 2020 15:06:49 +0200
+
+drawing (0.4.13-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #952788, #952117).
+  * Generate an upstream changelog from AppStream metadata.
+
+ -- Andrej Shadura <andrewsh@debian.org>  Fri, 29 May 2020 12:37:18 +0200
+
+drawing (0.4.11-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #933735).
+
+ -- Andrej Shadura <andrewsh@debian.org>  Sat, 22 Feb 2020 20:17:20 +0200
+
+drawing (0.4.2-1) unstable; urgency=medium
+
+  * Initial release (Closes: #933735).
+
+ -- Andrej Shadura <andrewsh@debian.org>  Sun, 02 Feb 2020 12:26:29 +0100
