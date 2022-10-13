@@ -1,14 +1,14 @@
-drawing (1.0.1-0ubuntu1) kinetic; urgency=medium
+drawing (0.8.5-2ubuntu1~ppa1) jammy; urgency=medium
 
-  * New upstream release
-    - add patch to resolve mismatched outlined gsettings
-    0001-wrong-default-option-for-text-background-521.patch
+  * Bug-fix
+    - Update default gsettings key-value to prevent unnecessary apport
+      reports
+      0001-wrong-default-option-for-text-background-521.patch
+      (LP: #xxxx)
   * Packaging Changes
-    d/control - update maintainership and VCS fields
-    d/copyright - update to reflect new release, year bump
-    and updated ubuntu-based package maintainer
+    - d/control update maintainer and VCS for ubuntu
 
- -- David Mohammed <fossfreedom@ubuntu.com>  Tue, 23 Aug 2022 17:19:18 +0100
+ -- David Mohammed <fossfreedom@ubuntu.com>  Thu, 13 Oct 2022 14:34:31 +0100
 
 drawing (0.8.5-2) unstable; urgency=medium
 

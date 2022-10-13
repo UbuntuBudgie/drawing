@@ -1,7 +1,8 @@
 Forwarded: https://github.com/maoschanz/drawing/commit/c63b496232540dbce5da1b5e872c1a3968bb3825
 Author: "Romain F. T" <rrroschan@gmail.com>
-Last-Update: 2022-05-06
+Last-Update: 2022-10-12
 Description: [PATCH] wrong default option for text background (#521)
+Ubuntu patch for 0.8.5 removes the new v1.0 shapes
 
 ---
  data/com.github.maoschanz.drawing.gschema.xml |  2 +-
@@ -21,82 +22,6 @@ index 70eac4ff..d662c412 100644
        <summary>Text insertion background style</summary>
        <description>The name of the last active background style, from the "text"
        tool, saved when closing a window.</description>
-diff --git a/src/tools/classic_tools/tool_shape.py b/src/tools/classic_tools/tool_shape.py
-index 755b7cbd..83648d8d 100644
---- a/src/tools/classic_tools/tool_shape.py
-+++ b/src/tools/classic_tools/tool_shape.py
-@@ -22,6 +22,32 @@ from .utilities_paths import utilities_smooth_path
- class ToolShape(AbstractClassicTool):
- 	__gtype_name__ = 'ToolShape'
- 
-+	SHAPE_TYPES = {
-+		'rectangle': _("Rectangle"),
-+		'roundedrect': _("Rounded rectangle"),
-+		'oval': _("Oval"),
-+		'circle': _("Circle"),
-+		'polygon': _("Polygon"),
-+		'freeshape': _("Free shape"),
-+	}
-+
-+	OUTLINE_TYPES = {
-+		'solid': _("Solid outline"),
-+		'dashed': _("Dashed outline"),
-+		'none': _("No outline"),
-+	}
-+
-+	FILLING_TYPES = {
-+		'empty': _("Empty shape"),
-+		# Context: fill a shape with the color of the left click
-+		'filled': _("Filled with main color"),
-+		# Context: fill a shape with the color of the right click
-+		'secondary': _("Filled with secondary color"),
-+		'h-gradient': _("Horizontal gradient"),
-+		'v-gradient': _("Vertical gradient"),
-+		'r-gradient': _("Radial gradient"),
-+	}
-+
- 	def __init__(self, window, **kwargs):
- 		super().__init__('shape', _("Shape"), 'tool-freeshape-symbolic', window)
- 		self.use_operator = True
-@@ -86,35 +112,15 @@ class ToolShape(AbstractClassicTool):
- 
- 	def get_editing_tips(self):
- 		self._set_active_shape()
--		shape_name = {
--			'rectangle': _("Rectangle"),
--			'roundedrect': _("Rounded rectangle"),
--			'oval': _("Oval"),
--			'circle': _("Circle"),
--			'polygon': _("Polygon"),
--			'freeshape': _("Free shape"),
--		}[self._shape_id]
-+		shape_name = self.SHAPE_TYPES[self._shape_id]
- 
- 		label_options = shape_name
- 		self._set_filling_style()
- 		self._set_outline_style()
- 		if self._outline_id != 'solid':
--			label_options += " - " + {
--				'solid': _("Solid outline"),
--				'dashed': _("Dashed outline"),
--				'none': _("No outline"),
--			}[self._outline_id]
-+			label_options += " - " + self.OUTLINE_TYPES[self._outline_id]
- 		if self._filling_id != 'empty':
--			label_options += " - " + {
--				'empty': _("Empty shape"),
--				# Context: fill a shape with the color of the left click
--				'filled': _("Filled with main color"),
--				# Context: fill a shape with the color of the right click
--				'secondary': _("Filled with secondary color"),
--				'h-gradient': _("Horizontal gradient"),
--				'v-gradient': _("Vertical gradient"),
--				'r-gradient': _("Radial gradient"),
--			}[self._filling_id]
-+			label_options += " - " + self.FILLING_TYPES[self._filling_id]
- 
- 		if (self._shape_id == 'polygon' or self._shape_id == 'freeshape') and \
- 		                                                 self._path is not None:
 -- 
 2.34.1
 

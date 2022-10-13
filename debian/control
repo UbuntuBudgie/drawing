@@ -20,8 +20,8 @@ Build-Depends:
  jq
 Standards-Version: 4.6.0
 Rules-Requires-Root: no
-Vcs-Git: https://github.com/ubuntubudgie/drawing.git
-Vcs-Browser: https://github.com/ubuntubudgie/drawing
+Vcs-Git: https://github.com/ubuntubudgie/drawing.git -b jammy
+Vcs-Browser: https://github.com/ubuntubudgie/drawing/-/tree/jammy
 Homepage: https://maoschanz.github.io/drawing/
 
 Package: drawing
